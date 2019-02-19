@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import HealthKit
+
+let currentHealthStore = HKHealthStore()
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

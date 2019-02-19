@@ -14,6 +14,7 @@
 		82998ECE221CA48900971AC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82998ECC221CA48900971AC9 /* LaunchScreen.storyboard */; };
 		82998ED9221CA48A00971AC9 /* healthRunthroughTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82998ED8221CA48A00971AC9 /* healthRunthroughTests.swift */; };
 		82998EE4221CA48A00971AC9 /* healthRunthroughUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82998EE3221CA48A00971AC9 /* healthRunthroughUITests.swift */; };
+		82998EF4221CA52400971AC9 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82998EF3221CA52400971AC9 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,8 @@
 		82998EDF221CA48A00971AC9 /* healthRunthroughUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = healthRunthroughUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82998EE3221CA48A00971AC9 /* healthRunthroughUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = healthRunthroughUITests.swift; sourceTree = "<group>"; };
 		82998EE5221CA48A00971AC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82998EF1221CA52400971AC9 /* healthRunthrough.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = healthRunthrough.entitlements; sourceTree = "<group>"; };
+		82998EF3221CA52400971AC9 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82998EF4221CA52400971AC9 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +85,7 @@
 				82998ED7221CA48A00971AC9 /* healthRunthroughTests */,
 				82998EE2221CA48A00971AC9 /* healthRunthroughUITests */,
 				82998EC1221CA48800971AC9 /* Products */,
+				82998EF2221CA52400971AC9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +102,7 @@
 		82998EC2221CA48800971AC9 /* healthRunthrough */ = {
 			isa = PBXGroup;
 			children = (
+				82998EF1221CA52400971AC9 /* healthRunthrough.entitlements */,
 				82998EC3221CA48800971AC9 /* AppDelegate.swift */,
 				82998EC5221CA48800971AC9 /* ViewController.swift */,
 				82998EC7221CA48800971AC9 /* Main.storyboard */,
@@ -123,6 +129,14 @@
 				82998EE5221CA48A00971AC9 /* Info.plist */,
 			);
 			path = healthRunthroughUITests;
+			sourceTree = "<group>";
+		};
+		82998EF2221CA52400971AC9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				82998EF3221CA52400971AC9 /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +207,11 @@
 				TargetAttributes = {
 					82998EBF221CA48800971AC9 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					82998ED3221CA48900971AC9 = {
 						CreatedOnToolsVersion = 10.1;
@@ -432,7 +451,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = healthRunthrough/healthRunthrough.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9F38F2V5K9;
 				INFOPLIST_FILE = healthRunthrough/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -449,7 +470,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = healthRunthrough/healthRunthrough.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9F38F2V5K9;
 				INFOPLIST_FILE = healthRunthrough/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
