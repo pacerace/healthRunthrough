@@ -10,29 +10,15 @@ import UIKit
 import HealthKit
 
 class ViewController: UIViewController {
+    let healthkitManager = HealthkitManager.sharedInstance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
-        if HKHealthStore.isHealthDataAvailable(){
-            //if available add func
-        }
-        else{
-            let alertController = UIAlertController(title: "Warning", message: "HealthKit is not available on this device", preferredStyle: UIAlertController.Style.alert)
-            alertController.addAction(UIAlertAction(title : "OK", style : UIAlertAction.Style.cancel, handler: nil ))
-            
-            self.present(alertController,animated: true, completion: nil)
-        }
-    }
-    func dataToRead() -> NSSet {
-        guard let heartRate : HKQuantityType = HKQuantityType.quantityType (forIdentifier: .heartRate){
-            else{
-                return
-            }
+        healthkitManager.authorizeHealthKit{ (success, error) in print("was healthkit uccessful?\(success)")
             
         }
-        return NSSet(objects: heartRate)
     }
-    
-
 }
 
