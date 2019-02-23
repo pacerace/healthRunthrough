@@ -15,6 +15,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        
+        
+        // Check if health is available on this device
+        func isHealthAvailable() -> Bool {
+            return HKHealthStore.isHealthDataAvailable()
+        }
+        
+        // Check if this app is authorized to write the necessary data to Health
+        func isHealthAuthorized() -> Bool {
+            return healthStore!.authorizationStatus(for: bpmType!) == HKAuthorizationStatus.sharingAuthorized
+        }
         // Do any additional setup after loading the view, typically from a nib.
         healthkitManager.authorizeHealthKit{ (success, error) in print("was healthkit uccessful?\(success)")
             
